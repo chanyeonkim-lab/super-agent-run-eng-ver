@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs><linearGradient id="sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00a1e0"/><stop offset="1" stop-color="#0077b3"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="#eef2f7"/>
+  <rect width="1000" height="62" fill="url(#sh)"/>
+  <g fill="#fff"><circle cx="30" cy="28" r="8"/><circle cx="42" cy="24" r="11"/><circle cx="55" cy="30" r="8"/><rect x="22" y="30" width="40" height="10" rx="5"/></g>
+  <text x="78" y="39" font-size="22" font-weight="700" fill="#fff">Sales Cloud</text>
+  <text x="978" y="38" font-size="15" font-weight="600" fill="#d7f0fb" text-anchor="end">Sales Pipeline · Q2</text>
+  <!-- KPI tiles -->
+  <rect x="28" y="82" width="300" height="86" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="48" y="112" font-size="13.5" fill="#6b7688" font-weight="700">This quarter's pipeline</text><text x="48" y="148" font-size="30" font-weight="800" fill="#00a1e0">$4.28M</text>
+  <rect x="344" y="82" width="300" height="86" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="364" y="112" font-size="13.5" fill="#6b7688" font-weight="700">Forecast (Commit)</text><text x="364" y="148" font-size="30" font-weight="800" fill="#12b76a">$1.85M</text>
+  <rect x="660" y="82" width="312" height="86" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="680" y="112" font-size="13.5" fill="#6b7688" font-weight="700">Deals in flight</text><text x="680" y="148" font-size="30" font-weight="800" fill="#20232a">27</text>
+  <!-- pipeline columns -->
+  <g font-size="14" font-weight="800" fill="#41506b">
+    <text x="44" y="204">Leads</text><text x="284" y="204">Qualify</text><text x="524" y="204">Propose</text><text x="764" y="204">Closing</text>
+  </g>
+  <!-- column bgs -->
+  <g><rect x="28" y="214" width="220" height="386" rx="12" fill="#e7edf4"/><rect x="268" y="214" width="220" height="386" rx="12" fill="#e7edf4"/><rect x="508" y="214" width="220" height="386" rx="12" fill="#e7edf4"/><rect x="748" y="214" width="224" height="386" rx="12" fill="#e7edf4"/></g>
+  <!-- col1 -->
+  <g>
+    <rect x="40" y="226" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="56" y="252" font-size="14.5" font-weight="700" fill="#20232a">C Heavy</text><text x="56" y="274" font-size="13" fill="#6b7688">$320K</text><rect x="56" y="282" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="56" y="282" width="30" height="8" rx="4" fill="#00a1e0"/><text x="228" y="290" font-size="11.5" fill="#00a1e0" font-weight="700" text-anchor="end">25%</text>
+    <rect x="40" y="314" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="56" y="340" font-size="14.5" font-weight="700" fill="#20232a">D Trading</text><text x="56" y="362" font-size="13" fill="#6b7688">$180K</text><rect x="56" y="370" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="56" y="370" width="24" height="8" rx="4" fill="#00a1e0"/><text x="228" y="378" font-size="11.5" fill="#00a1e0" font-weight="700" text-anchor="end">20%</text>
+  </g>
+  <!-- col2 -->
+  <g>
+    <rect x="280" y="226" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="296" y="252" font-size="14.5" font-weight="700" fill="#20232a">E Tech</text><text x="296" y="274" font-size="13" fill="#6b7688">$500K</text><rect x="296" y="282" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="296" y="282" width="54" height="8" rx="4" fill="#00a1e0"/><text x="468" y="290" font-size="11.5" fill="#00a1e0" font-weight="700" text-anchor="end">45%</text>
+    <rect x="280" y="314" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="296" y="340" font-size="14.5" font-weight="700" fill="#20232a">F Industries</text><text x="296" y="362" font-size="13" fill="#6b7688">$260K</text><rect x="296" y="370" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="296" y="370" width="48" height="8" rx="4" fill="#00a1e0"/><text x="468" y="378" font-size="11.5" fill="#00a1e0" font-weight="700" text-anchor="end">40%</text>
+  </g>
+  <!-- col3 -->
+  <g>
+    <rect x="520" y="226" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="536" y="252" font-size="14.5" font-weight="700" fill="#20232a">G Heavy</text><text x="536" y="274" font-size="13" fill="#6b7688">$740K</text><rect x="536" y="282" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="536" y="282" width="84" height="8" rx="4" fill="#f5a623"/><text x="708" y="290" font-size="11.5" fill="#b8620a" font-weight="700" text-anchor="end">70%</text>
+    <rect x="520" y="314" width="196" height="78" rx="10" fill="#fff" stroke="#dbe2ec"/><text x="536" y="340" font-size="14.5" font-weight="700" fill="#20232a">H Energy</text><text x="536" y="362" font-size="13" fill="#6b7688">$410K</text><rect x="536" y="370" width="120" height="8" rx="4" fill="#eef2f7"/><rect x="536" y="370" width="72" height="8" rx="4" fill="#f5a623"/><text x="708" y="378" font-size="11.5" fill="#b8620a" font-weight="700" text-anchor="end">60%</text>
+  </g>
+  <!-- col4 -->
+  <g>
+    <rect x="760" y="226" width="200" height="78" rx="10" fill="#fff" stroke="#bfe6c9"/><text x="776" y="252" font-size="14.5" font-weight="700" fill="#20232a">Company A ⭐</text><text x="776" y="274" font-size="13" fill="#6b7688">$920K</text><rect x="776" y="282" width="124" height="8" rx="4" fill="#eef2f7"/><rect x="776" y="282" width="112" height="8" rx="4" fill="#12b76a"/><text x="944" y="290" font-size="11.5" fill="#0b8f52" font-weight="700" text-anchor="end">90%</text>
+    <rect x="760" y="314" width="200" height="78" rx="10" fill="#fff" stroke="#bfe6c9"/><text x="776" y="340" font-size="14.5" font-weight="700" fill="#20232a">B Power</text><text x="776" y="362" font-size="13" fill="#6b7688">$600K</text><rect x="776" y="370" width="124" height="8" rx="4" fill="#eef2f7"/><rect x="776" y="370" width="100" height="8" rx="4" fill="#12b76a"/><text x="944" y="378" font-size="11.5" fill="#0b8f52" font-weight="700" text-anchor="end">80%</text>
+  </g>
+  <!-- footer note -->
+  <text x="44" y="576" font-size="13.5" fill="#6b7688" font-weight="600">Every meeting &amp; call is logged automatically, so stage, amount &amp; probability update in real time.</text>
+</svg>

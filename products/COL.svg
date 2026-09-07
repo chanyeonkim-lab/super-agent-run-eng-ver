@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <rect width="1000" height="625" fill="#ffffff"/>
+  <!-- sidebar -->
+  <rect width="270" height="625" fill="#3f0e40"/>
+  <text x="26" y="42" font-size="19" font-weight="800" fill="#fff">Our Company ▾</text>
+  <g font-size="15" fill="#cfc3d0" font-weight="600">
+    <text x="26" y="92"># general</text>
+    <text x="26" y="126"># sales-hq</text>
+    <rect x="10" y="140" width="250" height="34" rx="8" fill="#1164a3"/><text x="26" y="163" fill="#fff" font-weight="700"># partner-A_joint-project</text>
+    <text x="26" y="200"># announcements</text>
+  </g>
+  <text x="26" y="250" font-size="13" fill="#9a8b9b" font-weight="700">SLACK CONNECT</text>
+  <g font-size="14.5" fill="#cfc3d0" font-weight="600"><circle cx="30" cy="278" r="5" fill="#12b76a"/><text x="46" y="283">Company A (external)</text><circle cx="30" cy="308" r="5" fill="#12b76a"/><text x="46" y="313">Logistics partner</text></g>
+  <!-- channel header -->
+  <rect x="270" width="730" height="60" fill="#fff"/><line x1="270" y1="60" x2="1000" y2="60" stroke="#e6e1e6"/>
+  <text x="296" y="38" font-size="20" font-weight="800" fill="#1d1c1d"># partner-A_joint-project</text>
+  <rect x="612" y="20" width="150" height="24" rx="12" fill="#e8f6ee"/><text x="687" y="37" font-size="12.5" font-weight="700" fill="#0b8f52" text-anchor="middle">🔗 Slack Connect</text>
+  <!-- messages -->
+  <g>
+    <rect x="296" y="86" width="34" height="34" rx="8" fill="#e2352b"/><text x="313" y="109" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">K</text>
+    <text x="344" y="102" font-size="15" font-weight="800" fill="#1d1c1d">Kim <tspan fill="#9a8b9b" font-weight="500" font-size="12.5">9:12 AM</tspan></text>
+    <text x="344" y="126" font-size="14.5" fill="#1d1c1d">Sharing the delivery schedule file. Please take a look 🙏</text>
+    <rect x="344" y="140" width="300" height="52" rx="10" fill="#f8f8f8" stroke="#e6e1e6"/><rect x="356" y="152" width="28" height="28" rx="6" fill="#12b76a"/><text x="370" y="171" font-size="13" fill="#fff" text-anchor="middle">📄</text><text x="394" y="166" font-size="13.5" font-weight="700" fill="#1d1c1d">Q2_delivery_plan.xlsx</text><text x="394" y="184" font-size="12" fill="#9a8b9b">Company A · just uploaded</text>
+  </g>
+  <g>
+    <rect x="296" y="212" width="34" height="34" rx="8" fill="#1164a3"/><text x="313" y="235" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">A</text>
+    <text x="344" y="228" font-size="15" font-weight="800" fill="#1d1c1d">Park (Company A) <tspan fill="#9a8b9b" font-weight="500" font-size="12.5">9:20 AM</tspan></text>
+    <text x="344" y="252" font-size="14.5" fill="#1d1c1d">Got it. We just need to adjust week 3's volume.</text>
+  </g>
+  <!-- AI thread summary card -->
+  <rect x="296" y="286" width="678" height="150" rx="14" fill="#f5f3ff" stroke="#d9d0ff"/>
+  <text x="318" y="318" font-size="16" font-weight="800" fill="#5b3fd6">🤖  Channel conversation summary (Agent)</text>
+  <g font-size="14.5" fill="#3a4355" font-weight="600">
+    <circle cx="326" cy="346" r="4" fill="#7b61ff"/><text x="342" y="351">All messages &amp; files accumulate in one channel — nothing scatters across email &amp; calls</text>
+    <circle cx="326" cy="376" r="4" fill="#7b61ff"/><text x="342" y="381">Current topic: week 3 delivery volume (owner: Park, Company A)</text>
+    <circle cx="326" cy="406" r="4" fill="#7b61ff"/><text x="342" y="411">Next action: reply with adjustment → Kim, by today</text>
+  </g>
+  <!-- input -->
+  <rect x="296" y="556" width="678" height="46" rx="12" fill="#fff" stroke="#c9c2ca"/><text x="316" y="584" font-size="14.5" fill="#9a8b9b">Message the channel shared with Company A…</text>
+</svg>

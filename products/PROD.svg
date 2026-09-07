@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <linearGradient id="hd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a6bff"/><stop offset="1" stop-color="#6a49e0"/></linearGradient>
+  </defs>
+  <rect width="1000" height="625" fill="#eef1f8"/>
+  <!-- header -->
+  <rect width="1000" height="62" fill="url(#hd)"/>
+  <g fill="#fff"><circle cx="30" cy="28" r="8"/><circle cx="42" cy="24" r="11"/><circle cx="55" cy="30" r="8"/><rect x="22" y="30" width="40" height="10" rx="5"/></g>
+  <text x="78" y="39" font-size="22" font-weight="700" fill="#fff">Agentforce</text>
+  <text x="978" y="38" font-size="15" font-weight="600" fill="#e7dfff" text-anchor="end">Today's briefing · Monday 09:00</text>
+  <!-- card 1: notification summary -->
+  <rect x="28" y="86" width="452" height="214" rx="16" fill="#fff" stroke="#e3e7f2"/>
+  <text x="52" y="122" font-size="19" font-weight="700" fill="#20232a">🗂️  Auto-summary after vacation</text>
+  <text x="52" y="148" font-size="14" fill="#7b61ff" font-weight="700">512 unread alerts → AI sorted them in 3 min</text>
+  <g font-size="14" fill="#3a4355" font-weight="600">
+    <rect x="52" y="164" width="404" height="34" rx="9" fill="#f5f3ff"/><text x="66" y="186">#sales-hq  Weekly target adjustment</text><rect x="404" y="171" width="40" height="20" rx="10" fill="#7b61ff"/><text x="424" y="186" fill="#fff" font-size="12" text-anchor="middle">18</text>
+    <rect x="52" y="204" width="404" height="34" rx="9" fill="#f5f3ff"/><text x="66" y="226">#customer-A  Quote reply requested</text><rect x="388" y="211" width="56" height="20" rx="10" fill="#e2352b"/><text x="416" y="225" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">URGENT</text>
+    <rect x="52" y="244" width="404" height="34" rx="9" fill="#f5f3ff"/><text x="66" y="266">#team-notices  Quarterly review set</text><rect x="404" y="251" width="40" height="20" rx="10" fill="#12b76a"/><text x="424" y="266" fill="#fff" font-size="11" text-anchor="middle">DONE</text>
+  </g>
+  <!-- card 2: today's to-do -->
+  <rect x="496" y="86" width="476" height="214" rx="16" fill="#fff" stroke="#e3e7f2"/>
+  <text x="520" y="122" font-size="19" font-weight="700" fill="#20232a">✅  Today's to-do (auto-generated)</text>
+  <text x="520" y="148" font-size="14" fill="#7b61ff" font-weight="700">Prioritized from your calendar, email &amp; CRM</text>
+  <g font-size="14.5" fill="#3a4355" font-weight="600">
+    <circle cx="532" cy="176" r="8" fill="none" stroke="#7b61ff" stroke-width="2.5"/><text x="552" y="181">Review &amp; reply to A's quote</text><rect x="880" y="167" width="66" height="20" rx="10" fill="#ffe2dd"/><text x="913" y="181" fill="#e2352b" font-size="11" text-anchor="middle">DUE AM</text>
+    <circle cx="532" cy="212" r="8" fill="none" stroke="#7b61ff" stroke-width="2.5"/><text x="552" y="217">Update the weekly pipeline</text><rect x="880" y="203" width="66" height="20" rx="10" fill="#fff2d6"/><text x="913" y="217" fill="#b8620a" font-size="11" text-anchor="middle">HIGH</text>
+    <circle cx="532" cy="248" r="8" fill="#12b76a"/><path d="M528 248 l3 3 l6 -7" stroke="#fff" stroke-width="2" fill="none"/><text x="552" y="253" fill="#9aa4b5" text-decoration="line-through">Check competitor trends report</text>
+  </g>
+  <!-- bottom: agent summary -->
+  <rect x="28" y="316" width="944" height="284" rx="16" fill="#fff" stroke="#e3e7f2"/>
+  <rect x="28" y="316" width="944" height="46" rx="16" fill="#f5f3ff"/><rect x="28" y="344" width="944" height="18" fill="#f5f3ff"/>
+  <text x="52" y="345" font-size="16" font-weight="700" fill="#5b3fd6">🤖  Agent summary &amp; suggestions</text>
+  <text x="52" y="392" font-size="15" fill="#20232a" font-weight="600">Vs. last week, <tspan fill="#7b61ff" font-weight="700">deal A advanced 40%</tspan>, and the quote reply is now overdue.</text>
+  <text x="52" y="420" font-size="15" fill="#20232a" font-weight="600">Handling these three first will help you hit this week's deadline.</text>
+  <g font-size="14.5" fill="#3a4355" font-weight="600">
+    <circle cx="60" cy="454" r="4" fill="#7b61ff"/><text x="76" y="459">Reply to A's quote (last meeting's notes auto-attached)</text>
+    <circle cx="60" cy="486" r="4" fill="#7b61ff"/><text x="76" y="491">Share progress in the Project B partner channel</text>
+    <circle cx="60" cy="518" r="4" fill="#7b61ff"/><text x="76" y="523">Quarterly review deck draft — the Agent has it ready</text>
+  </g>
+  <rect x="640" y="530" width="308" height="46" rx="12" fill="#7b61ff"/><text x="794" y="559" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">▶  Hand it off to the Agent</text>
+</svg>

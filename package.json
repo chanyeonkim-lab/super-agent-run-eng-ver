@@ -1,0 +1,9 @@
+{
+  "name": "super-agent-run-eng",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SUPER AGENT RUN — a Super Mario-style benchmark game that teaches how Salesforce AI beats manual work (English / hackathon edition)",
+  "dependencies": {
+    "@upstash/redis": "^1.28.0"
+  }
+}

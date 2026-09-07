@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs><linearGradient id="mh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8f6b"/><stop offset="1" stop-color="#ef6c47"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="#fdf1ec"/>
+  <rect width="1000" height="62" fill="url(#mh)"/>
+  <g fill="#fff"><circle cx="30" cy="28" r="8"/><circle cx="42" cy="24" r="11"/><circle cx="55" cy="30" r="8"/><rect x="22" y="30" width="40" height="10" rx="5"/></g>
+  <text x="78" y="39" font-size="22" font-weight="700" fill="#fff">Agentforce · Account Briefing</text>
+  <text x="978" y="38" font-size="14" font-weight="600" fill="#ffe6dd" text-anchor="end">Auto-collected · just updated</text>
+  <!-- company header card -->
+  <rect x="28" y="82" width="944" height="104" rx="16" fill="#fff" stroke="#f4d9cf"/>
+  <rect x="48" y="102" width="64" height="64" rx="14" fill="#ff7a59"/><text x="80" y="143" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">A</text>
+  <text x="132" y="126" font-size="24" font-weight="800" fill="#20232a">Company A (prospect)</text>
+  <text x="132" y="154" font-size="14.5" fill="#6b7688" font-weight="600">Heavy industry · 8,200 employees · $2.6B revenue · Power &amp; plant equipment</text>
+  <rect x="812" y="112" width="140" height="44" rx="12" fill="#fff2ee" stroke="#ffcbb8"/><text x="882" y="139" font-size="14" font-weight="700" fill="#ef6c47" text-anchor="middle">Interest ▲ High</text>
+  <!-- recent developments -->
+  <rect x="28" y="200" width="580" height="400" rx="16" fill="#fff" stroke="#f4d9cf"/>
+  <text x="52" y="238" font-size="17" font-weight="800" fill="#20232a">📰  Recent developments (AI auto-summary)</text>
+  <g>
+    <rect x="52" y="256" width="532" height="72" rx="10" fill="#fdf1ec"/><text x="70" y="284" font-size="14.5" font-weight="700" fill="#20232a">Announced $400M offshore wind order</text><text x="70" y="308" font-size="13" fill="#8a5a48">3 days ago · Growth signal → expect capex demand</text>
+    <rect x="52" y="338" width="532" height="72" rx="10" fill="#fdf1ec"/><text x="70" y="366" font-size="14.5" font-weight="700" fill="#20232a">New dedicated digital-transformation (DX) team</text><text x="70" y="390" font-size="13" fill="#8a5a48">1 week ago · Active IT/data buying decisions</text>
+    <rect x="52" y="420" width="532" height="72" rx="10" fill="#fdf1ec"/><text x="70" y="448" font-size="14.5" font-weight="700" fill="#20232a">Q2 results up 12% year over year</text><text x="70" y="472" font-size="13" fill="#8a5a48">2 weeks ago · Improved budget headroom</text>
+  </g>
+  <text x="52" y="528" font-size="13.5" fill="#6b7688" font-weight="600">Instead of a person digging through their site, news &amp; filings,</text>
+  <text x="52" y="550" font-size="13.5" fill="#ef6c47" font-weight="800">the Agent monitors continuously and auto-briefs you.</text>
+  <!-- auto-collected sources + recommended actions -->
+  <rect x="624" y="200" width="348" height="188" rx="16" fill="#fff" stroke="#f4d9cf"/>
+  <text x="648" y="236" font-size="16" font-weight="800" fill="#20232a">🔎  Auto-collected sources</text>
+  <g font-size="13.5" font-weight="700">
+    <rect x="648" y="252" width="120" height="30" rx="15" fill="#eef2f7"/><text x="708" y="272" fill="#41506b" text-anchor="middle">News</text>
+    <rect x="776" y="252" width="120" height="30" rx="15" fill="#eef2f7"/><text x="836" y="272" fill="#41506b" text-anchor="middle">Filings</text>
+    <rect x="648" y="292" width="120" height="30" rx="15" fill="#eef2f7"/><text x="708" y="312" fill="#41506b" text-anchor="middle">Company info</text>
+    <rect x="776" y="292" width="120" height="30" rx="15" fill="#eef2f7"/><text x="836" y="312" fill="#41506b" text-anchor="middle">Industry reports</text>
+  </g>
+  <text x="648" y="356" font-size="13" fill="#6b7688" font-weight="600">De-duplicated, refreshed 24/7</text>
+  <rect x="624" y="404" width="348" height="196" rx="16" fill="#fff" stroke="#f4d9cf"/>
+  <text x="648" y="440" font-size="16" font-weight="800" fill="#20232a">💡  Recommended actions</text>
+  <g font-size="14" fill="#3a4355" font-weight="600">
+    <circle cx="656" cy="470" r="4" fill="#ff7a59"/><text x="672" y="475">Prep offshore-wind reference materials</text>
+    <circle cx="656" cy="502" r="4" fill="#ff7a59"/><text x="672" y="507">Find a contact in the DX team</text>
+    <circle cx="656" cy="534" r="4" fill="#ff7a59"/><text x="672" y="539">Auto-draft a first-meeting outreach email</text>
+  </g>
+  <rect x="648" y="556" width="300" height="30" rx="8" fill="#ff7a59"/><text x="798" y="576" font-size="13.5" font-weight="700" fill="#fff" text-anchor="middle">▶ Add as a lead in Sales Cloud</text>
+</svg>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🛠 SUPER AGENT RUN — Question Back Office</title>
+<style>
+  :root{color-scheme:light;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:#eef2f8;color:#20232a;min-height:100vh;}
+  .wrap{max-width:940px;margin:0 auto;padding:24px 18px 120px;}
+
+  /* login gate */
+  #gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 120% at 50% 0%,#1b3a7a,#0b1533);padding:24px;}
+  .gatebox{background:#fff;border-radius:20px;padding:32px 26px;width:100%;max-width:360px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.4);}
+  .gatebox .ico{font-size:46px;}
+  .gatebox h1{font-size:21px;font-weight:900;margin:8px 0 4px;}
+  .gatebox p{font-size:13px;color:#6b7688;margin-bottom:18px;}
+  .gatebox input{width:100%;font-size:17px;font-weight:700;text-align:center;padding:13px;border:2px solid #cdd6e4;border-radius:12px;}
+  .gatebox input:focus{outline:none;border-color:#00a1e0;}
+  .gatebox button{width:100%;margin-top:12px;background:#00a1e0;color:#fff;border:none;font-family:inherit;font-weight:900;font-size:16px;
+    border-radius:12px;padding:14px;cursor:pointer;}
+  .gatebox button:active{transform:translateY(1px);}
+  .gatebox .err{color:#e2352b;font-weight:800;font-size:13px;min-height:18px;margin-top:10px;}
+
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  header h1{font-size:22px;font-weight:900;}
+  header h1 .y{color:#e39b00;}
+  .sub{color:#6b7688;font-size:13px;margin-bottom:20px;line-height:1.6;}
+  .kvwarn{background:#fff4d6;border:1px solid #f0c14b;color:#8a6300;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:700;margin-bottom:18px;display:none;}
+
+  .catgroup{margin-bottom:26px;}
+  .catgroup h2{font-size:15px;font-weight:900;color:#fff;border-radius:10px;padding:9px 14px;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .catgroup h2 .prods{margin-left:auto;display:flex;gap:6px;}
+  .catgroup h2 .prods span{background:rgba(255,255,255,.25);border-radius:6px;padding:2px 8px;font-size:11px;font-weight:800;}
+
+  /* per-category product screenshot */
+  .imgslot{background:#fff;border:1px dashed #c3d0e4;border-radius:14px;padding:14px;margin-bottom:12px;display:flex;gap:14px;align-items:center;}
+  .imgslot .thumb{width:150px;height:94px;flex:none;border-radius:9px;border:1px solid #dde4ee;background:#f1f5fb center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;color:#9aa6bf;font-size:12px;font-weight:800;text-align:center;overflow:hidden;}
+  .imgslot .meta{flex:1;min-width:0;}
+  .imgslot .meta .t{font-size:13px;font-weight:900;color:#20232a;margin-bottom:3px;}
+  .imgslot .meta .d{font-size:11.5px;color:#7b8699;line-height:1.5;}
+  .imgslot .meta .st{font-size:11.5px;font-weight:800;margin-top:5px;min-height:15px;}
+  .imgslot .acts{display:flex;flex-direction:column;gap:7px;flex:none;}
+  .imgslot .acts button{font-family:inherit;font-weight:800;font-size:12.5px;border-radius:9px;padding:9px 14px;cursor:pointer;border:none;white-space:nowrap;}
+  .imgslot .acts .up{background:#00a1e0;color:#fff;}
+  .imgslot .acts .up:disabled{opacity:.5;cursor:default;}
+  .imgslot .acts .del{background:#fff;color:#c0392b;border:1.5px solid #e6b3ac;}
+  @media(max-width:560px){ .imgslot{flex-wrap:wrap;} .imgslot .thumb{width:100%;height:120px;} .imgslot .acts{flex-direction:row;width:100%;} .imgslot .acts button{flex:1;} }
+
+  .card{background:#fff;border:1px solid #dde4ee;border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 2px 6px rgba(20,40,80,.05);}
+  .card .top{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .card .qn{font-size:12px;font-weight:900;color:#8a97ab;background:#f1f5fb;border-radius:7px;padding:3px 9px;}
+  .fld{margin-bottom:11px;}
+  .fld label{display:block;font-size:11.5px;font-weight:800;color:#6b7688;margin-bottom:4px;}
+  .fld input,.fld textarea,.fld select{width:100%;font-family:inherit;font-size:14px;padding:9px 11px;border:1.5px solid #cdd6e4;border-radius:9px;background:#fbfcfe;}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:#00a1e0;background:#fff;}
+  .fld textarea{resize:vertical;min-height:44px;line-height:1.4;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ai label{color:#0b8f52;} .ai textarea{border-color:#9fdcbf;background:#f2fbf6;}
+  .man label{color:#c0392b;} .man textarea{border-color:#f0b9b3;background:#fdf4f3;}
+  .hint{font-size:11px;color:#98a3b5;margin-top:3px;}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border-top:1px solid #dde4ee;padding:14px 18px calc(14px + env(safe-area-inset-bottom));
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .bar .msg{font-size:13px;font-weight:800;min-height:18px;}
+  .bar .msg.ok{color:#0b8f52;} .bar .msg.err{color:#e2352b;}
+  .bar .btns{display:flex;gap:10px;margin-left:auto;}
+  .bar button{font-family:inherit;font-weight:900;font-size:14px;border-radius:11px;padding:12px 20px;cursor:pointer;border:none;}
+  .bar .save{background:#00a1e0;color:#fff;}
+  .bar .save:disabled{opacity:.5;cursor:default;}
+  .bar .reset{background:#fff;color:#c0392b;border:1.5px solid #e6b3ac;}
+  @media(max-width:560px){ .row2{grid-template-columns:1fr;} .bar .btns{width:100%;} .bar button{flex:1;} }
+</style>
+</head>
+<body>
+
+<!-- login gate -->
+<div id="gate">
+  <div class="gatebox">
+    <div class="ico">🛠</div>
+    <h1>Question Back Office</h1>
+    <p>Enter the admin password</p>
+    <input id="pin" type="password" placeholder="Password" autocomplete="off" />
+    <button id="enterBtn">Enter</button>
+    <div class="err" id="gateErr"></div>
+  </div>
+</div>
+
+<div class="wrap" id="app" style="display:none">
+  <header>
+    <h1>🛠 SUPER <span class="y">AGENT</span> RUN · Question Back Office</h1>
+  </header>
+  <p class="sub">Review and edit all 18 pain-point questions. The <b>AI way</b> is the correct answer and the <b>manual way</b> is the wrong answer in the game. Saving takes effect in the game immediately.</p>
+  <div class="kvwarn" id="kvwarn">⚠ Storage (KV) is not connected. Saving only works in a deployed environment. (Preview only for now)</div>
+
+  <div id="groups"></div>
+</div>
+
+<div class="bar" id="bar" style="display:none">
+  <div class="msg" id="msg"></div>
+  <div class="btns">
+    <button class="reset" id="resetBtn">Restore Defaults</button>
+    <button class="save" id="saveBtn">💾 Save</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+function $(i){return document.getElementById(i);}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+const CATS={
+  PROD: {name:"My Work Automation",     emoji:"🗂️", color:"#7b61ff", products:["Slack","Agentforce"]},
+  COL:  {name:"Collaboration",          emoji:"💬", color:"#36c5f0", products:["Slack"]},
+  SALES:{name:"Sales",                  emoji:"📈", color:"#00a1e0", products:["Sales Cloud"]},
+  MKT:  {name:"Market & Account Research", emoji:"🔍", color:"#ff7a59", products:["Agentforce","Sales Cloud"]},
+  DA:   {name:"Data Analytics",         emoji:"📊", color:"#e39b00", products:["Tableau"]},
+  DF:   {name:"Data Integration",       emoji:"🧩", color:"#12b76a", products:["Data Cloud","MuleSoft","Informatica"]}
+};
+const CAT_ORDER=["PROD","COL","SALES","MKT","DA","DF"];
+const ENEMIES=["goomba","koopa","piranha","boo","bullet"];
+const ENEMY_LABEL={goomba:"Goomba",koopa:"Koopa",piranha:"Piranha Plant",boo:"Boo",bullet:"Bullet Bill"};
+
+let PIN="", DATA=[], kvOn=false, IMAGES={};
+const PRODLABEL={PROD:"Agentforce / Slack screen",COL:"Slack screen",SALES:"Sales Cloud screen",MKT:"Agentforce briefing screen",DA:"Tableau dashboard screen",DF:"Data Cloud Customer 360 screen"};
+
+/* gate: client-side check for display only — the server re-validates the PIN on save */
+$("enterBtn").addEventListener("click",tryEnter);
+$("pin").addEventListener("keydown",e=>{ if(e.key==="Enter")tryEnter(); });
+function tryEnter(){
+  const p=$("pin").value.trim();
+  if(p!=="salesforce"){ $("gateErr").textContent="Incorrect password."; return; }
+  PIN=p; $("gate").style.display="none"; $("app").style.display="block"; $("bar").style.display="flex";
+  loadData();
+}
+
+async function loadData(){
+  $("msg").textContent="Loading questions…";
+  try{
+    const [r,ri]=await Promise.all([
+      fetch("/api/questions",{cache:"no-store"}),
+      fetch("/api/images",{cache:"no-store"}).catch(()=>null)
+    ]);
+    const j=await r.json();
+    if(ri){ try{ const ji=await ri.json(); IMAGES=(ji&&ji.images)||{}; }catch(e){ IMAGES={}; } }
+    kvOn=!!j.kv; $("kvwarn").style.display=kvOn?"none":"block";
+    DATA=(j.questions||[]).map(q=>({cat:q.cat,enemy:q.enemy,scene:q.scene||"",q:q.q||"",manual:q.manual||"",ai:q.ai||""}));
+    render();
+    $("msg").textContent=j.isDefault?"Default 18 questions (no saved edits yet)":"Loaded saved questions.";
+  }catch(e){
+    // offline preview: guard against an empty state
+    $("msg").className="msg err"; $("msg").textContent="Load failed — this works in a deployed environment.";
+    $("kvwarn").style.display="block";
+  }
+}
+
+function render(){
+  const byCat={}; CAT_ORDER.forEach(c=>byCat[c]=[]);
+  DATA.forEach((q,idx)=>{ (byCat[q.cat]=byCat[q.cat]||[]).push(idx); });
+  let html="";
+  CAT_ORDER.forEach(c=>{
+    const m=CATS[c]; const idxs=byCat[c]||[];
+    if(!idxs.length)return;
+    const prods=m.products.map(p=>`<span>${esc(p)}</span>`).join("");
+    html+=`<div class="catgroup"><h2 style="background:${m.color}">${m.emoji} ${esc(m.name)}<span class="prods">${prods}</span></h2>`;
+    html+=imgSlotHtml(c);
+    idxs.forEach((idx,i)=>{ html+=cardHtml(idx,i+1); });
+    html+=`</div>`;
+  });
+  $("groups").innerHTML=html;
+
+  // event binding
+  DATA.forEach((q,idx)=>{
+    ["scene","q","manual","ai"].forEach(f=>{
+      const el=$(`f_${f}_${idx}`); if(el)el.addEventListener("input",e=>{ DATA[idx][f]=e.target.value; });
+    });
+    const en=$(`f_enemy_${idx}`); if(en)en.addEventListener("change",e=>{ DATA[idx].enemy=e.target.value; });
+    const ct=$(`f_cat_${idx}`); if(ct)ct.addEventListener("change",e=>{ DATA[idx].cat=e.target.value; render(); });
+  });
+  // image slot binding
+  CAT_ORDER.forEach(c=>{
+    const file=$(`img_file_${c}`); if(file)file.addEventListener("change",e=>onPickImage(c,e.target.files&&e.target.files[0]));
+    const del=$(`img_del_${c}`); if(del)del.addEventListener("click",()=>onDeleteImage(c));
+  });
+}
+
+function imgSlotHtml(c){
+  const has=!!IMAGES[c];
+  const thumb=has?`style="background-image:url('${IMAGES[c]}')"`:"";
+  const label=has?"":"No image<br>(using temporary mockup)";
+  return `<div class="imgslot">
+    <div class="thumb" id="img_thumb_${c}" ${thumb}>${label}</div>
+    <div class="meta">
+      <div class="t">🖥️ Product screen shown on a correct answer</div>
+      <div class="d">${esc(PRODLABEL[c]||"Product screen")} · Shared across every question in this category.<br>Landscape image recommended (16:10). Automatically resized and compressed on upload.</div>
+      <div class="st" id="img_st_${c}"></div>
+    </div>
+    <div class="acts">
+      <input type="file" id="img_file_${c}" accept="image/png,image/jpeg,image/webp" style="display:none" />
+      <button class="up" onclick="document.getElementById('img_file_${c}').click()">${has?"Replace":"Upload"}</button>
+      <button class="del" id="img_del_${c}" ${has?"":'style="display:none"'}>Delete</button>
+    </div>
+  </div>`;
+}
+
+function setImgSt(c,t,cls){ const el=$(`img_st_${c}`); if(!el)return; el.textContent=t||""; el.style.color=cls==="err"?"#e2352b":(cls==="ok"?"#0b8f52":"#7b8699"); }
+
+// file → resize/compress → dataURL (long edge 1400px, JPEG 0.82)
+function compressImage(file){
+  return new Promise((resolve,reject)=>{
+    const fr=new FileReader();
+    fr.onerror=()=>reject(new Error("Failed to read file"));
+    fr.onload=()=>{
+      const img=new Image();
+      img.onerror=()=>reject(new Error("Invalid image format"));
+      img.onload=()=>{
+        const MAX=1400; let w=img.naturalWidth,h=img.naturalHeight;
+        if(Math.max(w,h)>MAX){ const s=MAX/Math.max(w,h); w=Math.round(w*s); h=Math.round(h*s); }
+        const cv=document.createElement("canvas"); cv.width=w; cv.height=h;
+        const ctx=cv.getContext("2d"); ctx.fillStyle="#ffffff"; ctx.fillRect(0,0,w,h); ctx.drawImage(img,0,0,w,h);
+        let q=0.82,out=cv.toDataURL("image/jpeg",q);
+        while(out.length>1300000&&q>0.4){ q-=0.1; out=cv.toDataURL("image/jpeg",q); }
+        resolve(out);
+      };
+      img.src=fr.result;
+    };
+    fr.readAsDataURL(file);
+  });
+}
+
+async function onPickImage(c,file){
+  if(!file)return;
+  if(!kvOn){ setImgSt(c,"Storage not connected — saving only works in a deployed environment.","err"); return; }
+  setImgSt(c,"Processing image…");
+  const up=document.querySelector(`#img_file_${c}`).closest(".imgslot").querySelector(".up"); if(up)up.disabled=true;
+  try{
+    const dataURL=await compressImage(file);
+    if(dataURL.length>1400000){ setImgSt(c,"Image is too large. Please use a smaller image.","err"); if(up)up.disabled=false; return; }
+    setImgSt(c,"Uploading…");
+    const r=await fetch("/api/images",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"save",pin:PIN,cat:c,image:dataURL})});
+    const j=await r.json();
+    if(j&&j.ok&&j.saved){ IMAGES[c]=dataURL; render(); setImgSt(c,"✅ Uploaded! Takes effect in the game immediately.","ok"); }
+    else if(j&&j.error==="BAD_PIN"){ setImgSt(c,"Cannot save — incorrect password.","err"); }
+    else if(j&&j.error==="IMAGE_TOO_LARGE"){ setImgSt(c,"Image over the size limit — please use a smaller image.","err"); }
+    else if(j&&j.error==="KV_NOT_CONFIGURED"){ setImgSt(c,"Storage not connected — saving only works in a deployed environment.","err"); }
+    else { setImgSt(c,"Upload failed: "+((j&&j.error)||"unknown"),"err"); }
+  }catch(e){ setImgSt(c,"Failed: "+(e&&e.message||"error"),"err"); }
+  if(up)up.disabled=false;
+}
+
+async function onDeleteImage(c){
+  if(!confirm("Delete this category's product screenshot? The temporary mockup will be shown again."))return;
+  setImgSt(c,"Deleting…");
+  try{
+    const r=await fetch("/api/images",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"delete",pin:PIN,cat:c})});
+    const j=await r.json();
+    if(j&&j.ok&&j.deleted){ delete IMAGES[c]; render(); setImgSt(c,"Deleted. (using temporary mockup)","ok"); }
+    else { setImgSt(c,"Delete failed: "+((j&&j.error)||""),"err"); }
+  }catch(e){ setImgSt(c,"Request failed","err"); }
+}
+
+function cardHtml(idx,n){
+  const q=DATA[idx];
+  const catOpts=CAT_ORDER.map(c=>`<option value="${c}" ${c===q.cat?"selected":""}>${CATS[c].emoji} ${esc(CATS[c].name)}</option>`).join("");
+  const enOpts=ENEMIES.map(e=>`<option value="${e}" ${e===q.enemy?"selected":""}>${ENEMY_LABEL[e]}</option>`).join("");
+  return `<div class="card">
+    <div class="top"><span class="qn">#${n}</span></div>
+    <div class="fld"><label>Scene (shown as "⚠ Scene" in the game)</label>
+      <input id="f_scene_${idx}" value="${esc(q.scene)}" maxlength="40" /></div>
+    <div class="fld"><label>Question</label>
+      <textarea id="f_q_${idx}" maxlength="200">${esc(q.q)}</textarea></div>
+    <div class="fld ai"><label>✅ AI way (correct)</label>
+      <textarea id="f_ai_${idx}" maxlength="200">${esc(q.ai)}</textarea></div>
+    <div class="fld man"><label>✖ Manual way (wrong)</label>
+      <textarea id="f_manual_${idx}" maxlength="200">${esc(q.manual)}</textarea></div>
+    <div class="row2">
+      <div class="fld"><label>Category</label><select id="f_cat_${idx}">${catOpts}</select></div>
+      <div class="fld"><label>Enemy character</label><select id="f_enemy_${idx}">${enOpts}</select></div>
+    </div>
+  </div>`;
+}
+
+/* save */
+$("saveBtn").addEventListener("click",async()=>{
+  const invalid=DATA.some(q=>!q.q.trim()||!q.ai.trim()||!q.manual.trim());
+  if(invalid){ setMsg("Question, AI way, and manual way must all be filled in.",true); return; }
+  $("saveBtn").disabled=true; setMsg("Saving…");
+  try{
+    const r=await fetch("/api/questions",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"save",pin:PIN,questions:DATA})});
+    const j=await r.json();
+    if(j&&j.ok&&j.saved){ setMsg(`✅ Saved! ${j.count} questions are now live in the game.`); }
+    else if(j&&j.error==="BAD_PIN"){ setMsg("Cannot save — incorrect password.",true); }
+    else if(j&&j.error==="KV_NOT_CONFIGURED"){ setMsg("Storage not connected — saving only works in a deployed environment.",true); }
+    else { setMsg("Save failed: "+((j&&j.error)||"unknown"),true); }
+  }catch(e){ setMsg("Request failed (offline)",true); }
+  $("saveBtn").disabled=false;
+});
+
+$("resetBtn").addEventListener("click",async()=>{
+  if(!confirm("Restore all questions to the default 18. Any saved edits will be deleted. Continue?"))return;
+  setMsg("Restoring…");
+  try{
+    const r=await fetch("/api/questions",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({action:"reset",pin:PIN})});
+    const j=await r.json();
+    if(j&&j.ok&&j.reset){ DATA=(j.questions||[]).map(q=>({cat:q.cat,enemy:q.enemy,scene:q.scene||"",q:q.q||"",manual:q.manual||"",ai:q.ai||""})); render(); setMsg("✅ Restored to defaults."); }
+    else if(j&&j.error==="BAD_PIN"){ setMsg("Incorrect password.",true); }
+    else { setMsg("Restore failed: "+((j&&j.error)||""),true); }
+  }catch(e){ setMsg("Request failed (offline)",true); }
+});
+
+function setMsg(t,err){ const m=$("msg"); m.textContent=t; m.className="msg"+(err?" err":(t.indexOf("✅")>=0?" ok":"")); }
+
+$("pin").focus();
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🏆 SUPER AGENT RUN — Live Leaderboard</title>
+<style>
+  :root{color-scheme:light;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:radial-gradient(120% 120% at 50% 0%,#1b3a7a 0%,#0b1533 60%,#070d22 100%);color:#fff;
+    min-height:100%;overflow-x:hidden;}
+  .pix{font-weight:900;text-shadow:3px 3px 0 rgba(0,0,0,.35);}
+  header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:clamp(14px,2.2vw,26px) clamp(18px,3vw,44px);
+    background:linear-gradient(180deg,rgba(11,21,51,.96),rgba(11,21,51,.7));backdrop-filter:blur(6px);
+    border-bottom:3px solid rgba(255,210,63,.4);}
+  .title{display:flex;align-items:center;gap:14px;}
+  .title .cup{font-size:clamp(30px,4vw,48px);filter:drop-shadow(0 4px 0 rgba(0,0,0,.25));animation:sw 2s ease-in-out infinite;}
+  @keyframes sw{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+  .title h1{font-size:clamp(20px,3vw,40px);line-height:1;}
+  .title h1 .y{color:#ffd23f;}
+  .title p{font-size:clamp(11px,1.2vw,15px);color:#9fb4e0;font-weight:700;margin-top:5px;}
+  .stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .stat{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);border-radius:14px;
+    padding:9px 16px;text-align:center;min-width:96px;}
+  .stat .n{font-size:clamp(20px,2.6vw,34px);font-weight:900;color:#ffd23f;line-height:1;}
+  .stat .l{font-size:11px;color:#9fb4e0;font-weight:700;margin-top:4px;}
+  .conn{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#7fe0a0;}
+  .conn .dot{width:9px;height:9px;border-radius:50%;background:#12b76a;box-shadow:0 0 8px #12b76a;animation:blink 1.4s infinite;}
+  .conn.off{color:#ffb0b0;} .conn.off .dot{background:#e2352b;box-shadow:0 0 8px #e2352b;}
+  @keyframes blink{50%{opacity:.35}}
+
+  main{padding:clamp(14px,2.5vw,34px) clamp(14px,3vw,44px) 120px;max-width:1200px;margin:0 auto;}
+
+  /* podium */
+  .podium{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:clamp(8px,1.4vw,20px);align-items:end;margin-bottom:clamp(18px,3vw,36px);}
+  .pod{border-radius:18px 18px 12px 12px;padding:16px 10px 18px;text-align:center;position:relative;
+    border:3px solid rgba(255,255,255,.25);box-shadow:0 12px 30px rgba(0,0,0,.35);transition:transform .4s;}
+  .pod .medal{font-size:clamp(30px,4vw,50px);line-height:1;}
+  .pod .nm{font-weight:900;font-size:clamp(15px,1.9vw,24px);margin:8px 0 4px;word-break:break-all;
+    overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .pod .co{font-weight:900;font-size:clamp(18px,2.4vw,32px);color:#fff;}
+  .pod .co small{font-size:.6em;opacity:.8;}
+  .pod.p1{background:linear-gradient(180deg,#ffe680,#f5b800);color:#5a3d00;min-height:clamp(170px,20vw,230px);border-color:#fff2b0;}
+  .pod.p2{background:linear-gradient(180deg,#e8eef7,#b9c6d8);color:#2a3648;min-height:clamp(140px,16vw,190px);}
+  .pod.p3{background:linear-gradient(180deg,#f0c08a,#cf9152);color:#4a2d0e;min-height:clamp(130px,14vw,170px);}
+  .pod.p1 .co,.pod.p2 .co,.pod.p3 .co{color:inherit;}
+  .pod .rank{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#0b1533;border:2px solid rgba(255,255,255,.4);
+    border-radius:999px;font-size:12px;font-weight:900;padding:3px 12px;}
+
+  /* remaining list */
+  .list{display:flex;flex-direction:column;gap:8px;}
+  .row{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:14px;
+    background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.09);border-radius:13px;
+    padding:12px 18px;animation:slide .4s ease both;}
+  @keyframes slide{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+  .row .r{font-size:clamp(16px,2vw,24px);font-weight:900;color:#8ea3cf;text-align:center;}
+  .row .n{font-size:clamp(15px,1.8vw,22px);font-weight:800;word-break:break-all;}
+  .row .c{font-size:clamp(16px,2vw,24px);font-weight:900;color:#ffd23f;white-space:nowrap;}
+  .empty{text-align:center;padding:80px 20px;color:#7c90ba;}
+  .empty .big{font-size:60px;margin-bottom:16px;}
+  .empty p{font-size:17px;font-weight:700;line-height:1.6;}
+  .empty code{background:rgba(255,255,255,.1);padding:2px 8px;border-radius:6px;color:#ffd23f;}
+
+  /* reset */
+  .admin{position:fixed;right:18px;bottom:18px;z-index:20;}
+  .rbtn{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);color:#cfe0ff;
+    font-family:inherit;font-weight:800;font-size:13px;border-radius:11px;padding:10px 16px;cursor:pointer;}
+  .rbtn:hover{background:rgba(226,53,43,.2);border-color:#e2352b;color:#fff;}
+  .toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#12b76a;color:#fff;
+    font-weight:800;padding:12px 24px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;
+    transition:opacity .3s;z-index:30;pointer-events:none;}
+  .toast.show{opacity:1;}
+  .toast.err{background:#e2352b;}
+
+  /* live vote panel */
+  .votepanel{margin-top:clamp(20px,3vw,40px);background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);
+    border-radius:18px;padding:clamp(16px,2.2vw,26px);}
+  .votepanel .vhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+  .votepanel .vhead h2{font-size:clamp(17px,2.2vw,26px);font-weight:900;color:#fff;}
+  .votepanel .vhead h2 .q{color:#ffd23f;}
+  .votepanel .vhead .vtot{font-size:clamp(12px,1.4vw,16px);font-weight:800;color:#9fb4e0;}
+  .vbars{display:flex;flex-direction:column;gap:clamp(9px,1.3vw,15px);}
+  .vbar{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;align-items:center;gap:12px;}
+  .vbar .vlabel{font-size:clamp(13px,1.5vw,18px);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .vbar .vtrack{position:relative;height:clamp(22px,2.6vw,34px);background:rgba(255,255,255,.07);border-radius:999px;overflow:hidden;}
+  .vbar .vfill{position:absolute;inset:0 auto 0 0;width:0;border-radius:999px;transition:width .6s cubic-bezier(.2,.8,.3,1);min-width:3px;}
+  .vbar .vpct{font-size:clamp(13px,1.6vw,20px);font-weight:900;color:#ffd23f;white-space:nowrap;min-width:74px;text-align:right;}
+  .vbar .vpct small{color:#9fb4e0;font-size:.66em;font-weight:800;margin-left:4px;}
+  .vempty{color:#7c90ba;font-weight:700;text-align:center;padding:22px 10px;font-size:15px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <div class="cup">🏆</div>
+    <div>
+      <h1 class="pix">SUPER <span class="y">AGENT</span> RUN</h1>
+      <p>The AI Transformation Adventure · Live Leaderboard &nbsp; <span class="conn" id="conn"><span class="dot"></span><span id="connT">Connecting…</span></span></p>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n" id="sPlayers">0</div><div class="l">Players</div></div>
+    <div class="stat"><div class="n" id="sTop">0</div><div class="l">Top Score 🪙</div></div>
+  </div>
+</header>
+
+<main>
+  <div class="podium" id="podium" style="display:none">
+    <div class="pod p2" id="pod2"><div class="rank">2nd</div><div class="medal">🥈</div><div class="nm" id="n2">-</div><div class="co" id="c2">0<small>🪙</small></div></div>
+    <div class="pod p1" id="pod1"><div class="rank">1st</div><div class="medal">👑</div><div class="nm" id="n1">-</div><div class="co" id="c1">0<small>🪙</small></div></div>
+    <div class="pod p3" id="pod3"><div class="rank">3rd</div><div class="medal">🥉</div><div class="nm" id="n3">-</div><div class="co" id="c3">0<small>🪙</small></div></div>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="empty" id="empty">
+    <div class="big">🎮</div>
+    <p>No players yet.<br>Open the game on your phone, enter your name, and start playing!</p>
+  </div>
+
+  <!-- live category poll -->
+  <div class="votepanel" id="votepanel">
+    <div class="vhead">
+      <h2>💬 <span class="q">"Which pain point hit closest to home today?"</span> Live Poll</h2>
+      <div class="vtot"><b id="vTotal">0</b> votes</div>
+    </div>
+    <div class="vbars" id="vbars"></div>
+    <div class="vempty" id="vempty">Votes from players who finish the game show up here in real time.</div>
+  </div>
+</main>
+
+<div class="admin"><button class="rbtn" id="resetBtn">🗑 Reset Leaderboard</button></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+function $(i){return document.getElementById(i);}
+let prevTop="";
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function toast(msg,err){const t=$("toast");t.textContent=msg;t.className="toast show"+(err?" err":"");setTimeout(()=>t.className="toast",2200);}
+
+function setConn(ok,txt){const c=$("conn");c.className="conn"+(ok?"":" off");$("connT").textContent=txt;}
+
+async function poll(){
+  try{
+    const r=await fetch("/api/score",{cache:"no-store"});
+    const j=await r.json();
+    if(j&&j.kv===false){ setConn(false,"KV not connected"); render([],0); return; }
+    if(j&&j.ok){ setConn(true,"Live"); render(j.players||[], j.total||0); }
+    else { setConn(false,"Response error"); }
+  }catch(e){ setConn(false,"Offline"); }
+}
+
+function render(players, total){
+  $("sPlayers").textContent=total;
+  $("sTop").textContent=players.length?players[0].coins:0;
+
+  // celebration effect when the #1 spot changes
+  const topKey=players.length?players[0].name+"|"+players[0].coins:"";
+  if(topKey && topKey!==prevTop && prevTop!==""){ celebrate(); }
+  prevTop=topKey;
+
+  if(!players.length){ $("empty").style.display="block"; $("podium").style.display="none"; $("list").innerHTML=""; return; }
+  $("empty").style.display="none"; $("podium").style.display="grid";
+
+  const top3=players.slice(0,3);
+  const set=(i,p)=>{ $("n"+i).textContent=p?esc(p.name):"-"; $("c"+i).innerHTML=(p?p.coins:0)+"<small>🪙</small>"; $("pod"+i).style.visibility=p?"visible":"hidden"; };
+  set(1,top3[0]); set(2,top3[1]); set(3,top3[2]);
+
+  const rest=players.slice(3,50);
+  $("list").innerHTML=rest.map((p,i)=>
+    `<div class="row"><div class="r">${i+4}</div><div class="n">${esc(p.name)}</div><div class="c">${p.coins} 🪙</div></div>`
+  ).join("");
+}
+
+function celebrate(){
+  for(let i=0;i<40;i++){
+    const c=document.createElement("div");
+    c.style.cssText=`position:fixed;top:-20px;left:${Math.random()*100}vw;width:10px;height:14px;z-index:40;pointer-events:none;
+      background:${["#ffd23f","#e2352b","#2b5fd0","#12b76a","#fff"][i%5]};opacity:.9;border-radius:2px;`;
+    document.body.appendChild(c);
+    const dur=1400+Math.random()*1200, rot=Math.random()*720-360, dx=(Math.random()*2-1)*80;
+    c.animate([{transform:"translateY(0) rotate(0)"},{transform:`translate(${dx}px,110vh) rotate(${rot}deg)`}],{duration:dur,easing:"cubic-bezier(.3,.6,.5,1)"});
+    setTimeout(()=>c.remove(),dur);
+  }
+}
+
+$("resetBtn").addEventListener("click",async()=>{
+  const pin=prompt("Reset the leaderboard.\nEnter the admin PIN:");
+  if(pin==null)return;
+  try{
+    const r=await fetch("/api/score",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"reset",pin})});
+    const j=await r.json();
+    if(j&&j.ok&&j.reset){ toast("✅ Leaderboard has been reset"); prevTop=""; poll(); }
+    else if(j&&j.error==="BAD_PIN"){ toast("Incorrect PIN",true); }
+    else { toast("Reset failed "+((j&&j.error)||""),true); }
+  }catch(e){ toast("Request failed (offline)",true); }
+});
+
+/* ===== category vote tally ===== */
+const VCATS=[
+  {key:"PROD", name:"My Work Automation",     emoji:"🗂️", color:"#7b61ff"},
+  {key:"COL",  name:"Collaboration",          emoji:"💬", color:"#36c5f0"},
+  {key:"SALES",name:"Sales",                  emoji:"📈", color:"#00a1e0"},
+  {key:"MKT",  name:"Market & Account Research", emoji:"🔍", color:"#ff7a59"},
+  {key:"DA",   name:"Data Analytics",         emoji:"📊", color:"#e39b00"},
+  {key:"DF",   name:"Data Integration",       emoji:"🧩", color:"#12b76a"}
+];
+async function pollVotes(){
+  try{
+    const r=await fetch("/api/vote",{cache:"no-store"});
+    const j=await r.json();
+    if(j&&j.ok){ renderVotes(j.counts||{}, j.total||0); }
+    else { renderVotes({},0); }
+  }catch(e){ /* keep last */ }
+}
+function renderVotes(counts,total){
+  $("vTotal").textContent=total;
+  const max=Math.max(1,...VCATS.map(c=>counts[c.key]||0));
+  const ranked=VCATS.slice().sort((a,b)=>(counts[b.key]||0)-(counts[a.key]||0));
+  if(!total){ $("vempty").style.display="block"; }
+  else { $("vempty").style.display="none"; }
+  $("vbars").innerHTML=ranked.map(c=>{
+    const n=counts[c.key]||0;
+    const pct=total?Math.round(n/total*100):0;
+    const w=Math.round((n/max)*100);
+    return `<div class="vbar">
+      <div class="vlabel">${c.emoji} ${esc(c.name)}</div>
+      <div class="vtrack"><div class="vfill" style="width:${w}%;background:${c.color}"></div></div>
+      <div class="vpct">${pct}%<small>${n} votes</small></div>
+    </div>`;
+  }).join("");
+}
+
+poll();
+setInterval(poll,1500);
+pollVotes();
+setInterval(pollVotes,1500);
+</script>
+</body>
+</html>

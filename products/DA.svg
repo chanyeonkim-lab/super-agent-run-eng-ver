@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs><linearGradient id="dh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c3f7c"/><stop offset="1" stop-color="#122c59"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="#eef1f6"/>
+  <rect width="1000" height="62" fill="url(#dh)"/>
+  <text x="30" y="39" font-size="22" font-weight="800" fill="#fff">Tableau <tspan fill="#ffc94d">+ AI</tspan></text>
+  <text x="978" y="38" font-size="15" font-weight="600" fill="#c3d0e6" text-anchor="end">Production &amp; delivery dashboard · auto-refresh</text>
+  <!-- NL query box -->
+  <rect x="28" y="82" width="944" height="90" rx="16" fill="#fff" stroke="#e0e6ee"/>
+  <text x="48" y="112" font-size="13.5" fill="#6b7688" font-weight="700">💬 Ask in plain language</text>
+  <rect x="48" y="122" width="700" height="34" rx="10" fill="#f3f6fb" stroke="#d7deea"/><text x="66" y="145" font-size="15" fill="#20232a" font-weight="700">"Why did deliveries slip this month?"</text>
+  <rect x="762" y="122" width="190" height="34" rx="10" fill="#e39b00"/><text x="857" y="145" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">▶ Analyze now</text>
+  <!-- KPI -->
+  <rect x="28" y="188" width="220" height="80" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="48" y="216" font-size="13" fill="#6b7688" font-weight="700">On-time delivery</text><text x="48" y="250" font-size="26" font-weight="800" fill="#e2352b">86% ▼</text>
+  <rect x="260" y="188" width="220" height="80" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="280" y="216" font-size="13" fill="#6b7688" font-weight="700">Avg lead time</text><text x="280" y="250" font-size="26" font-weight="800" fill="#20232a">14.2 days</text>
+  <rect x="492" y="188" width="220" height="80" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="512" y="216" font-size="13" fill="#6b7688" font-weight="700">Delayed orders</text><text x="512" y="250" font-size="26" font-weight="800" fill="#e39b00">37</text>
+  <rect x="724" y="188" width="248" height="80" rx="14" fill="#fff" stroke="#e0e6ee"/><text x="744" y="216" font-size="13" fill="#6b7688" font-weight="700">Inventory turns</text><text x="744" y="250" font-size="26" font-weight="800" fill="#12b76a">4.8 ▲</text>
+  <!-- bar chart -->
+  <rect x="28" y="284" width="470" height="316" rx="16" fill="#fff" stroke="#e0e6ee"/>
+  <text x="52" y="318" font-size="16" font-weight="800" fill="#20232a">Delays by root cause</text>
+  <g>
+    <text x="52" y="360" font-size="13.5" fill="#41506b" font-weight="600">Material supply</text><rect x="150" y="348" width="300" height="18" rx="9" fill="#1c3f7c"/><text x="462" y="362" font-size="12.5" fill="#1c3f7c" font-weight="700" text-anchor="end">14</text>
+    <text x="52" y="396" font-size="13.5" fill="#41506b" font-weight="600">Equipment uptime</text><rect x="150" y="384" width="210" height="18" rx="9" fill="#2e5aa0"/><text x="372" y="398" font-size="12.5" fill="#2e5aa0" font-weight="700" text-anchor="end">10</text>
+    <text x="52" y="432" font-size="13.5" fill="#41506b" font-weight="600">Process bottleneck</text><rect x="150" y="420" width="150" height="18" rx="9" fill="#4a7ac2"/><text x="312" y="434" font-size="12.5" fill="#4a7ac2" font-weight="700" text-anchor="end">7</text>
+    <text x="52" y="468" font-size="13.5" fill="#41506b" font-weight="600">Quality rework</text><rect x="150" y="456" width="120" height="18" rx="9" fill="#7ba0d6"/><text x="282" y="470" font-size="12.5" fill="#7ba0d6" font-weight="700" text-anchor="end">4</text>
+    <text x="52" y="504" font-size="13.5" fill="#41506b" font-weight="600">Other</text><rect x="150" y="492" width="50" height="18" rx="9" fill="#aac2e6"/><text x="212" y="506" font-size="12.5" fill="#9fb4d6" font-weight="700" text-anchor="end">2</text>
+  </g>
+  <text x="52" y="558" font-size="13" fill="#6b7688" font-weight="600">With data connected instead of merged in Excel,</text>
+  <text x="52" y="578" font-size="13" fill="#e39b00" font-weight="800">the dashboard refreshes itself.</text>
+  <!-- AI insight -->
+  <rect x="512" y="284" width="460" height="316" rx="16" fill="#fff8ea" stroke="#f0d99a"/>
+  <text x="536" y="318" font-size="16" font-weight="800" fill="#b8620a">🤖  AI analysis</text>
+  <text x="536" y="352" font-size="15" fill="#20232a" font-weight="700"><tspan fill="#e2352b" font-weight="800">62% of delivery delays</tspan> come from material supply</text>
+  <line x1="536" y1="368" x2="948" y2="368" stroke="#f0d99a"/>
+  <g font-size="14" fill="#3a4355" font-weight="600">
+    <circle cx="544" cy="396" r="4" fill="#e39b00"/><text x="560" y="401">Two specific suppliers' late inbound is the main cause</text>
+    <circle cx="544" cy="428" r="4" fill="#e39b00"/><text x="560" y="433">Lead time up 3.1 days on average since June</text>
+    <circle cx="544" cy="460" r="4" fill="#e39b00"/><text x="560" y="465">Raising safety stock for that material should cut delays ~40%</text>
+  </g>
+  <rect x="536" y="486" width="412" height="90" rx="12" fill="#fff" stroke="#f0d99a"/>
+  <text x="556" y="514" font-size="13.5" font-weight="800" fill="#b8620a">💡 Recommendation</text>
+  <text x="556" y="540" font-size="13.5" fill="#3a4355" font-weight="600">Order material A two days earlier, and</text>
+  <text x="556" y="560" font-size="13.5" fill="#3a4355" font-weight="600">automate supplier late-inbound alerts.</text>
+</svg>

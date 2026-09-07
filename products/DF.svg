@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="625" viewBox="0 0 1000 625" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs><linearGradient id="fh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c974"/><stop offset="1" stop-color="#0e9a58"/></linearGradient></defs>
+  <rect width="1000" height="625" fill="#eef6f1"/>
+  <rect width="1000" height="62" fill="url(#fh)"/>
+  <g fill="#fff"><circle cx="30" cy="28" r="8"/><circle cx="42" cy="24" r="11"/><circle cx="55" cy="30" r="8"/><rect x="22" y="30" width="40" height="10" rx="5"/></g>
+  <text x="78" y="39" font-size="22" font-weight="700" fill="#fff">Data Cloud · Customer 360</text>
+  <text x="978" y="38" font-size="14.5" font-weight="600" fill="#d6f5e5" text-anchor="end">Scattered data, unified</text>
+
+  <!-- left: source systems -->
+  <text x="52" y="108" font-size="15" font-weight="800" fill="#0e7a48">📥  Scattered source systems</text>
+  <g>
+    <rect x="40" y="122" width="210" height="60" rx="12" fill="#fff" stroke="#cfe9db"/><rect x="52" y="134" width="36" height="36" rx="9" fill="#eaf6ef"/><text x="70" y="158" font-size="17" text-anchor="middle">🏭</text><text x="100" y="148" font-size="14.5" font-weight="700" fill="#20232a">ERP</text><text x="100" y="170" font-size="12.5" fill="#6b7688">Orders, revenue, settlement</text>
+    <rect x="40" y="196" width="210" height="60" rx="12" fill="#fff" stroke="#cfe9db"/><rect x="52" y="208" width="36" height="36" rx="9" fill="#eaf6ef"/><text x="70" y="232" font-size="17" text-anchor="middle">🚚</text><text x="100" y="222" font-size="14.5" font-weight="700" fill="#20232a">SCM</text><text x="100" y="244" font-size="12.5" fill="#6b7688">Delivery, inventory, logistics</text>
+    <rect x="40" y="270" width="210" height="60" rx="12" fill="#fff" stroke="#cfe9db"/><rect x="52" y="282" width="36" height="36" rx="9" fill="#eaf6ef"/><text x="70" y="306" font-size="17" text-anchor="middle">💬</text><text x="100" y="296" font-size="14.5" font-weight="700" fill="#20232a">Slack / Email</text><text x="100" y="318" font-size="12.5" fill="#6b7688">Messages &amp; inquiry history</text>
+    <rect x="40" y="344" width="210" height="60" rx="12" fill="#fff" stroke="#cfe9db"/><rect x="52" y="356" width="36" height="36" rx="9" fill="#eaf6ef"/><text x="70" y="380" font-size="17" text-anchor="middle">📈</text><text x="100" y="370" font-size="14.5" font-weight="700" fill="#20232a">Sales Cloud</text><text x="100" y="392" font-size="12.5" fill="#6b7688">Sales &amp; contract history</text>
+    <rect x="40" y="418" width="210" height="60" rx="12" fill="#fff" stroke="#cfe9db"/><rect x="52" y="430" width="36" height="36" rx="9" fill="#eaf6ef"/><text x="70" y="454" font-size="17" text-anchor="middle">🌐</text><text x="100" y="444" font-size="14.5" font-weight="700" fill="#20232a">External data</text><text x="100" y="466" font-size="12.5" fill="#6b7688">News &amp; filings</text>
+  </g>
+
+  <!-- connector arrows -->
+  <g stroke="#9dd9bb" stroke-width="2.5" fill="none">
+    <path d="M250 152 C 320 152, 340 300, 402 300"/>
+    <path d="M250 226 C 320 226, 350 300, 402 300"/>
+    <path d="M250 300 L 402 300"/>
+    <path d="M250 374 C 320 374, 350 300, 402 300"/>
+    <path d="M250 448 C 320 448, 340 300, 402 300"/>
+  </g>
+  <circle cx="330" cy="300" r="20" fill="#18c974"/><text x="330" y="307" font-size="18" text-anchor="middle" fill="#fff" font-weight="800">⟳</text>
+
+  <!-- right: unified 360 -->
+  <rect x="402" y="86" width="570" height="500" rx="18" fill="#fff" stroke="#cfe9db"/>
+  <rect x="402" y="86" width="570" height="92" rx="18" fill="#f0fbf5"/><rect x="402" y="140" width="570" height="38" fill="#f0fbf5"/>
+  <circle cx="452" cy="132" r="30" fill="#18c974"/><text x="452" y="141" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">A</text>
+  <text x="498" y="122" font-size="21" font-weight="800" fill="#20232a">Company A — Unified customer profile</text>
+  <text x="498" y="150" font-size="14" fill="#0e9a58" font-weight="700">✅ Data from 5 systems auto-unified into one customer</text>
+  <rect x="820" y="108" width="130" height="42" rx="12" fill="#e8f7ee"/><text x="885" y="134" font-size="14" font-weight="800" fill="#0e7a48" text-anchor="middle">De-duplicated</text>
+
+  <!-- unified fact tiles -->
+  <g>
+    <rect x="424" y="196" width="256" height="76" rx="12" fill="#f7fbf9" stroke="#e0efe7"/><text x="444" y="224" font-size="13" fill="#6b7688" font-weight="700">Lifetime value</text><text x="444" y="256" font-size="24" font-weight="800" fill="#20232a">$12.8M</text>
+    <rect x="694" y="196" width="256" height="76" rx="12" fill="#f7fbf9" stroke="#e0efe7"/><text x="714" y="224" font-size="13" fill="#6b7688" font-weight="700">Open issues</text><text x="714" y="256" font-size="24" font-weight="800" fill="#e39b00">2</text>
+    <rect x="424" y="284" width="256" height="76" rx="12" fill="#f7fbf9" stroke="#e0efe7"/><text x="444" y="312" font-size="13" fill="#6b7688" font-weight="700">Last delivery</text><text x="444" y="344" font-size="24" font-weight="800" fill="#20232a">3 days ago</text>
+    <rect x="694" y="284" width="256" height="76" rx="12" fill="#f7fbf9" stroke="#e0efe7"/><text x="714" y="312" font-size="13" fill="#6b7688" font-weight="700">Owner · status</text><text x="714" y="344" font-size="22" font-weight="800" fill="#12b76a">Key account</text>
+  </g>
+
+  <!-- timeline -->
+  <text x="424" y="398" font-size="15" font-weight="800" fill="#20232a">🕘  One connected activity timeline</text>
+  <g font-size="14" fill="#3a4355" font-weight="600">
+    <circle cx="432" cy="428" r="4" fill="#18c974"/><text x="448" y="433">[SCM] Week 3 delivery complete · on time</text>
+    <circle cx="432" cy="460" r="4" fill="#18c974"/><text x="448" y="465">[Slack] Delivery adjustment discussed in partner channel</text>
+    <circle cx="432" cy="492" r="4" fill="#18c974"/><text x="448" y="497">[Sales Cloud] New deal $920K · closing soon</text>
+    <circle cx="432" cy="524" r="4" fill="#18c974"/><text x="448" y="529">[ERP] Q2 settlement complete · $0 receivables</text>
+  </g>
+  <rect x="424" y="546" width="526" height="24" rx="8" fill="#f0fbf5"/><text x="687" y="563" font-size="12.5" fill="#0e7a48" font-weight="700" text-anchor="middle">Now everyone sees the same customer, same up-to-date info</text>
+</svg>
